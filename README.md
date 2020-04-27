@@ -1,6 +1,9 @@
-# Rails 6/API/Postgresql/ActiveAdmin/Devise/RSpec
+# CreationShelf
 
-Simplified Rails 6 API setup with ActiveAdmin
+ - Ruby 2.7.0
+ - Rails 6 versioned API
+ - ActiveAdmin/Devise
+ - Rspec/FactoryBot/Faker
 
 ## Installation
 
