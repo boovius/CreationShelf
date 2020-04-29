@@ -43,12 +43,12 @@ ActiveRecord::Schema.define(version: 2020_04_27_155223) do
   end
 
   create_table "creations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "summary"
-    t.bigint "creator_id"
+    t.uuid "creator_id"
+    t.uuid "header_photo_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["creator_id"], name: "index_creations_on_creator_id"
     t.index ["name", "creator_id"], name: "index_creations_on_name_and_creator_id", unique: true
   end
 
@@ -64,16 +64,16 @@ ActiveRecord::Schema.define(version: 2020_04_27_155223) do
   create_table "recipes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "inspired_by"
     t.string "source_url"
-    t.bigint "creation_id"
+    t.uuid "creation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["creation_id"], name: "index_recipes_on_creation_id"
   end
 
   create_table "steps", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "description", null: false
-    t.integer "order", null: false
+    t.integer "order"
     t.integer "seconds"
+    t.uuid "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

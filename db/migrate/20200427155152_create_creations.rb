@@ -1,9 +1,10 @@
 class CreateCreations < ActiveRecord::Migration[6.0]
   def change
     create_table :creations, id: :uuid do |t|
-      t.string :name
+      t.string :name, null: false
       t.text :summary
-      t.belongs_to :creator
+      t.uuid :creator_id
+      t.uuid :header_photo_id
 
       t.timestamps
     end
