@@ -34,6 +34,7 @@ group :development, :test do
   gem "dotenv", "~> 2.7"
   gem "factory_bot_rails", "~> 5.1"
   gem "faker", "~> 2.11"
+  gem "dotenv-rails", "~> 2.7"
 end
 
 group :development do
@@ -42,4 +43,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
