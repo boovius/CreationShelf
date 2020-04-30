@@ -5,7 +5,16 @@ ActiveAdmin.register Creation do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :summary, :creator_id
+  permit_params :name, :summary, :creator_id
+
+   form do |f|
+     f.inputs 'Creations' do
+       f.input :name
+       f.input :summary
+       f.input :creator, as: :select, collection: User.pluck(:name)
+       f.actions
+     end
+   end
   #
   # or
   #

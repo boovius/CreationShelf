@@ -9,6 +9,7 @@ class Creation < ApplicationRecord
 
   def attributes
     attrs = super.merge({
+      'recipe': recipe,
       'photos': photos,
       'header_photo': header_photo
     })

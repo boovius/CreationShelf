@@ -1,18 +1,14 @@
 ActiveAdmin.register Photo do
+   permit_params do
+     [:url, :holder_id, :holder_type]
+   end
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :url, :holder_id, :holder_type
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:url, :holder_id, :holder_type]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+   form do |f|
+     inputs 'Recipes' do
+       input :url
+       input :holder_id, as: :string
+       input :holder_type, as: :radio, :collection => ['Creation', 'Recipe', 'Step']
+       actions
+     end
+   end
 end

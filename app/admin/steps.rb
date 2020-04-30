@@ -1,18 +1,15 @@
 ActiveAdmin.register Step do
+   permit_params do
+     [:description, :order, :seconds, :recipe_id]
+   end
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :description, :order, :seconds
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:description, :order, :seconds]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+   form do |f|
+     f.inputs 'Steps' do
+       f.input :description
+       f.input :order
+       f.input :seconds
+       f.input :recipe_id, as: :string
+       actions
+     end
+   end
 end
